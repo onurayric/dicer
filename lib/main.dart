@@ -27,8 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int dice2;
   int diceTotal;
 
-  int createRandomNumber() {
-    return Random().nextInt(6) + 1;
+  int createRandomNumber(int maxNumber) {
+    return Random().nextInt(maxNumber) + 1;
   }
 
   int getTotal(int number1, int number2) {
@@ -37,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    dice1 = createRandomNumber();
-    dice2 = createRandomNumber();
+    dice1 = createRandomNumber(6);
+    dice2 = createRandomNumber(6);
     diceTotal = getTotal(dice1, dice2);
     return Scaffold(
       appBar: AppBar(title: Text("Dicer")),
@@ -63,5 +63,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-//Text(dice1.toString(), style: Theme.of(context).textTheme.headline1)
